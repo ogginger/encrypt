@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ $1 == *.gpg ]]
+then
+	gpg --output ${1%.gpg} --decrypt --batch --passphrase-file ~/.ssh/authorization_keys $1
+else
+	echo "Error: The filename did not end with the correct file type extension (.gpg)."
+fi
+
